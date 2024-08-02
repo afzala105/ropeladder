@@ -52,6 +52,17 @@
       </div>
     </section>
 
+    <section id="konfirmasi">
+      <div>
+        <button class="tutupHome">&times;</button>
+        <div id="isi-konfirmasi">
+          <p id="teksKonfirmasi">Apakah...</p>
+          <button id="trueKonfirmasi">Iya</button>
+          <button id="falseKonfirmasi">Tidak</button>
+        </div>
+      </div>
+    </section>
+
     <section id="tips">
       <div>
         <button class="tutupHome">&times;</button>
@@ -65,7 +76,7 @@
     
     <section id="main">
 
-      <button id="btnAkhir" onclick="return confirm('Apakah Anda ingin mengakhiri permainan ?') ? finishGame() : backGame()">End Game</button>
+      <button id="btnAkhir" onclick="konfirm('Apakah Anda ingin mengakhiri permainan ?')">End Game</button>
       
       <div id="timer" onclick="javascript:void(0)">
         <span id="menit"></span>
