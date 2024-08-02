@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pengembangan Media Pembelajaran Rope Ladder Physical Activity Berbasis Web Rope Ladder Untuk Meningkatkan Fundamental Movement Siswa Sekolah Dasar." />
+  <meta name="og:image" content="thumb.png" />
+  <title>Rope Ladder ~ Hari Prasetio</title>
+    <!--<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">-->
+    <link rel="stylesheet" type="text/css" href="css/board.css" />
+    <link rel="stylesheet" type="text/css" href="css/dice.css" />
+    <link rel="stylesheet" type="text/css" href="css/pesan.css" />
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+  </head>
+  <body>
+
+    <section id="login">
+      <h1>Rope Ladder</h1>
+      <button class="top" onclick="mainkan()">Mainkan!</button>
+      <button onclick="history()">Data Permainan</button>
+      <button onclick="petunjuk()">Petunjuk Permainan</button>
+      <div class="credit">
+        <p>oleh : <b>Hari Prasetio</b></p>
+      </div>
+    </section>
+    
+    <section id="form">
+      <div>
+        <button class="tutupHome">&times;</button>
+        <h4>Isi Profile Guru</h4>
+        <input type="text" onkeyup="cekData()"  oninput="create(data, 'nama', this.value)" placeholder="Nama Guru" />
+        <input type="text" onkeyup="cekData()"  oninput="create(data, 'unit', this.value)" placeholder="Unit Kerja" />
+        <input type="text" onkeyup="cekData()"  oninput="create(data, 'kec', this.value)" placeholder="Kecamatan" />
+        <input type="text" onkeyup="cekData()"  oninput="create(data, 'kab', this.value)" placeholder="Kabupaten" />
+        
+        <span id="penting">Mohon isi semua data profile sebelum memulai (data dibutuhkan)</span>
+        <button id="mulai" class="disabled" disabled>Mulai</button>
+        
+      </div>
+    </section>
+    
+    <section id="riwayat">
+      <div>
+        <button class="tutupHome">&times;</button>
+        <div id="dataRiwayat">
+          <p id="nodata">No Data</p>
+          
+        </div>
+      </div>
+    </section>
+
+    <section id="tips">
+      <div>
+        <button class="tutupHome">&times;</button>
+        
+        <p>Tekan <strong>Mainkan!</strong> untuk memulai permainan dan gunakan dadu untuk mulai menggerakkan pion.</p>
+      </div>
+    </section>
+    
+    
+    
+    
+    <section id="main">
+
+      <button id="btnAkhir" onclick="return confirm('Apakah Anda ingin mengakhiri permainan ?') ? finishGame() : backGame()">End Game</button>
+      
+      <div id="timer" onclick="javascript:void(0)">
+        <span id="menit"></span>
+        <div id="second">
+          <div id="detik">
+            00
+          </div>
+        </div>
+      </div>
+
+      <div class="board-cont">
+        <div class="bg"></div>
+      </div>
+
+      <h3>Tekan dadu di bawah untuk memulai</h3>
+
+      <div class="dice-cont">
+        <div id="tirai">
+
+        </div>
+
+        <div class="dice">
+          <div class="face front"></div>
+          <div class="face back"></div>
+          <div class="face top"></div>
+          <div class="face bottom"></div>
+          <div class="face right"></div>
+          <div class="face left"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="vid-cont">
+      <video id="vid" controls>
+
+        Your browser does not support the video tag.
+      </video>
+      <button class="tutupVid" onclick="closeVid(this)">Tutup Video</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/pesan.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/dice.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/start.js"></script>
+  </body>
+  </html>
