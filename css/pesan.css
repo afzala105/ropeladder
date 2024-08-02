@@ -1,0 +1,63 @@
+.pesan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  width: 90%;
+  max-width: 720px;
+  text-align: center;
+  padding: 5% 8%;
+  background: rgba(255, 255, 255, .95);
+  z-index: 25;
+  top: 20%;
+  margin: 0 auto;
+  color: #000;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  font-family: "Shantell sans", cursive;
+}
+
+
+.pesan > button {
+  margin-top: 5%;
+  padding: 3% 5%;
+  border: 0.25px solid #000;
+  border-radius: 10px;
+  transition: 0.5s;
+  box-shadow: 2px 2px 5px #000;
+}
+
+.pesan > button:hover {
+  box-shadow: inset 3px 3px 5px #000;
+}
+
+.pesanMasuk {
+  animation: masuk 1s;
+}
+
+.pesanKeluar {
+  animation: keluar 0.5s;
+}
+
+@keyframes masuk {
+  0% {
+    transform: scale(0.0);
+  }
+  50% {
+    transform: scale(1.0);
+  }
+  75% {
+    transform: scale(0.75);
+  }
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+@keyframes keluar {
+  100% {
+    transform: scale(0);
+  }
+}
+
