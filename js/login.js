@@ -1,11 +1,11 @@
 let tutupEl = (el, time) => { return new Promise((resolve, reject)=>{
-      
-      setTimeout(function() {
-        el.style.animation = "none";
-        resolve(el.style.display = "none");
-        reject(Error("Failure"));
-      }, time);
-  })
+
+  setTimeout(function() {
+    el.style.animation = "none";
+    resolve(el.style.display = "none");
+    reject(Error("Failure"));
+  }, time);
+})
 }
 
 let data = Object.assign({}, {
@@ -62,8 +62,8 @@ function cekData(){
   else {
     showPenting()
     if(mulai.classList.contains('ok')){
-    mulai.classList.replace('ok','disabled');
-    mulai.setAttribute('disabled','');
+      mulai.classList.replace('ok','disabled');
+      mulai.setAttribute('disabled','');
     }
   }
 }
@@ -72,27 +72,28 @@ cekData()
 
 mulai.addEventListener('click',()=>{
   tutupEl(form, 50).then(
-  (res)=>{
-    tutupEl(login, 50);
-  },
-  (er)=>{
-    console.log(er)
-  }
-  )
+    (res)=>{
+      tutupEl(login, 50);
+    },
+    (er)=>{
+      console.log(er)
+    }
+    )
   .then(
-  (res)=>{
-    init()
-  },
-  (er)=>{
-    console.log(er)
-  }
-  );
+    (res)=>{
+      init()
+    },
+    (er)=>{
+      console.log(er)
+    }
+    );
 })
 
 
 const tips = document.querySelector("#tips");
 const riwayat = document.querySelector("#riwayat");
 const form = document.querySelector("#form");
+const konfirmasi = document.querySelector("#konfirmasi");
 
 let tutupHome = document.getElementsByClassName("tutupHome");
 
@@ -101,39 +102,82 @@ function petunjuk(){
   tips.style.display = "flex";
 }
 
+function konfirm(text){
+  konfirmasi.style.animation = "homeIn 0.5s";
+  konfirmasi.style.display = "flex";
+
+  let teksKonfirmasi = document.getElementById('teksKonfirmasi');
+  teksKonfirmasi.textContent = text;
+
+  let iya = document.getElementById('trueKonfirmasi');
+  let tidak = document.getElementById('falseKonfirmasi');
+
+  iya.onclick = ()=> {
+    //return true;
+    
+    konfirmasi.style.animation = "";
+    konfirmasi.style.animation = "homeOut 0.7s"
+    tutupEl(konfirmasi, 700).then(
+      function(res){
+        console.log(res)
+
+      },
+      function(er){console.log(er)}
+      )
+
+    finishGame()
+  }
+
+  tidak.onclick = ()=>{
+    //return false;
+
+    konfirmasi.style.animation = "";
+    konfirmasi.style.animation = "homeOut 0.7s"
+    tutupEl(konfirmasi, 700).then(
+      function(res){
+        console.log(res)
+
+      },
+      function(er){console.log(er)}
+      )
+
+    backGame()
+  }
+}
+
 function history(){
   riwayat.style.animation = "homeIn 0.5s"
   riwayat.style.display = "block";
 }
 
 function mainkan(){
-  
+
   form.style.animation = "homeIn 0.5s"
   form.style.display = "flex";
 }
 
 for(let tutup of tutupHome){
-  
-tutup.addEventListener("click", (e) => {
+
+  tutup.addEventListener("click", (e) => {
   //console.log("tutup");
-  let tmp = e.target.parentNode.parentNode
+    let tmp = e.target.parentNode.parentNode
   //.style.display = "none";
-  
-  tmp.style.animation = "homeOut 0.7s"
-  tutupEl(tmp, 700).then(
-    function(res){
-      console.log(res)
-     
-    },
-    function(er){console.log(er)}
-  )
-})
+
+    tmp.style.animation = "homeOut 0.7s"
+    tutupEl(tmp, 700).then(
+      function(res){
+        console.log(res)
+
+      },
+      function(er){console.log(er)}
+      )
+  })
 }
 
 function loginStart(){
   login.style.display = "flex";
   if(localStorage.getItem('masterData') === null){
-      localStorage.setItem('masterData','{}');
+    localStorage.setItem('masterData','{}');
   }
   pesan("Selamat Datang dalam Permainan!");
 }
