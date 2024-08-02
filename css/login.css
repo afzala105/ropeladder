@@ -1,4 +1,4 @@
-#login, #riwayat, #tips, #form {
+#login, #riwayat, #tips, #form, #konfirmasi {
   position: absolute;
   top: 0;
   left: 0;
@@ -57,7 +57,7 @@
   font-weight: bold;
 }
 
-#tips, #riwayat, #form {
+#tips, #riwayat, #form, #konfirmasi {
   z-index: 22;
   display: none;
   justify-content: center;
@@ -65,8 +65,20 @@
   text-align: center;
 }
 
+#konfirmasi div > #isi-konfirmasi {
+  border: none;
+  width: 100%;
+}
 
-#tips div, #riwayat div, #form div {
+#konfirmasi div #isi-konfirmasi > button {
+  border-radius: 10px;
+  word-wrap: nowrap;
+  padding: 1% 4%;
+  margin: 2% 1%;
+}
+
+
+#tips div, #riwayat div, #form div, #konfirmasi div{
   position: relative;
   width: 80%;
   padding: 5%;
